@@ -1,11 +1,11 @@
 <template>
   <div style="border-top-left-radius: 10px;border-top-right-radius: 10px;overflow: hidden;">
-    <el-container style="height: 700px; border: 1px solid #eee">
+    <el-container style="height:100vh; border: 1px solid #eee">
       <!--  侧边  !-->
       <el-aside
         class="el-aside"
-        width="200px"
-        style="background-color: white;height: 619px;border: 1px solid #999"
+        width="24vh"
+        style="background-color: white;height: 90vh;"
       >
         <el-menu :default-openeds="['1', '3']">
           <el-submenu index="1">
