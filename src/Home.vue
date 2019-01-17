@@ -5,21 +5,16 @@
       <el-aside
         class="el-aside"
         width="24vh"
-        style="background-color: white;height: 90vh;"
+        style="background-color: white;width:200px"
       >
-        <el-menu
-          :default-openeds="['1', '3']"
-          @select="handleSelect"
-        >
+        <el-menu :default-openeds="['1', '3']">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-message"></i>导航一
             </template>
             <el-menu-item-group>
               <template slot="title">分组一</template>
-              <el-menu-item index="1-1">
-                <router-link to="/home/test">选项1</router-link>
-              </el-menu-item>
+              <el-menu-item index="1-1">选项1</el-menu-item>
               <el-menu-item index="1-2">选项2</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="分组2">
@@ -68,8 +63,10 @@
       </el-aside>
       <el-container>
         <!--  头部  !-->
-        <el-header style="text-align: left; font-size: 24px; background-color:#303133;height:80px">
-          <p style="position: absolute; top:-6px;left: 42px;font-size: 23px;font-family: 微软雅黑;font-weight: bold; color: #f5f7f9; top: -6px;">智能巡检系统</p>
+        <el-header style="text-align: left; font-size: 24px; background-color:#303133;height:80px;width:100%">
+          <p
+            style="position: absolute; top:-6px;left: 42px;font-size: 23px;font-family: 微软雅黑;font-weight: bold; color: #f5f7f9; top: -10px;"
+          >智能巡检系统</p>
           <el-menu
             :default-active="activeIndex"
             class="el-menu-demo"
@@ -86,23 +83,21 @@
             <el-menu-item index="5">5</el-menu-item>
             <el-menu-item index="6">6</el-menu-item>
           </el-menu>
-          <el-dropdown style="left:1750px;top:-57px;">
-            <el-button
-              type="primary"
-              style="background-color:#ffd04b;"
-            >
-              菜单
-              <i class="el-icon-arrow-down el-icon--right"></i>
+          <el-dropdown style="position:fixed;right:25px;top:10px">
+            <!-- <el-button type="primary" style="background-color:#ffd04b;"  icon="el-icon-setting">
             </el-button>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>用户</el-dropdown-item>
+              <el-dropdown-item icon="el-icon-search"></el-dropdown-item>
               <el-dropdown-item>皮肤</el-dropdown-item>
               <el-dropdown-item>设置</el-dropdown-item>
-            </el-dropdown-menu>
+            </el-dropdown-menu> -->
+            <i class="el-icon-info"></i>&nbsp;&nbsp;
+            <i class="el-icon-view"></i>&nbsp;&nbsp;
+            <i class="el-icon-setting"></i>
           </el-dropdown>
         </el-header>
         <!--  主要区域内容  !-->
-        <el-main style="right:200px;width:1678px;position:absolute;left:230px;top:90px;padding-left: 0px;">
+        <el-main style="right:200px;width:1200px;position:relative;left:230px;padding-left: 0px;">
           <el-breadcrumb>
             <el-breadcrumb-item>首页</el-breadcrumb-item>
             <el-breadcrumb-item>活动管理</el-breadcrumb-item>
@@ -111,16 +106,48 @@
           </el-breadcrumb>
           <br>
           <div class="layout-content">
-            <div class="layout-content-main">
-              <router-view></router-view>
-            </div>
-          </div>
+                    <div class="layout-content-main">内容区域</div>
+                </div>
         </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
+<style>
+
+body{
+	margin: 0; 
+	padding: 0;
+	border: 0;
+}
+.el-header {
+  background-color: #b3c0d1;
+  color: #333;
+  line-height: 60px;
+}
+
+.el-aside {
+  color: #333;
+  position: absolute;
+  top: 80px;
+}
+.el-menu-demo {
+  width: 1500px;
+  left: 180px;
+  top: 20px;
+}
+.layout-content{
+        background-color:#D0D0D0;
+        min-height: 540px;
+        min-width: 1150px;
+        overflow: hidden;
+        border-radius: 4px;
+    }
+    .layout-content-main{
+        padding: 10px;
+    }
+</style>
 
 <script>
 export default {
@@ -132,47 +159,7 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
-      console.log(key);
-      if (key == "1-1") {
-      }
     }
   }
 };
 </script>
-
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-.el-header {
-  background-color: #b3c0d1;
-  color: #333;
-  line-height: 60px;
-}
-.el-aside {
-  color: #333;
-  position: absolute;
-  top: 80px;
-}
-.el-menu-demo {
-  width: 1500px;
-  left: 180px;
-  top: 20px;
-}
-.layout-content {
-  background-color: #d0d0d0;
-  min-height: 540px;
-  min-width: 1200px;
-  overflow: hidden;
-  border-radius: 4px;
-}
-.layout-content-main {
-  padding: 10px;
-}
-a{
-  text-decoration: none
-}
-</style>
-
