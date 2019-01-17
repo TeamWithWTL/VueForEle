@@ -1,6 +1,6 @@
 <template>
   <div style="border-top-left-radius: 10px;border-top-right-radius: 10px;overflow: hidden;">
-    <el-container style="height:100vh; border: 1px solid #eee">
+    <el-container style="height:100vh;">
       <!--  侧边  !-->
       <el-aside
         class="el-aside"
