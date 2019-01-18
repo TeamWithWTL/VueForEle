@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 
 const topnav = Mock.mock([{
         name: "资产台账",
-        index: "ledge"
+        index: "ledger"
     },
     {
         name: "生产运行",

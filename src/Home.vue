@@ -28,6 +28,7 @@
           <p
             style="position: absolute; top:-6px;left: 42px;font-size: 23px;font-family: 微软雅黑;font-weight: bold; color: #f5f7f9; top: -10px;"
           >智能巡检系统</p>
+          <!-- 顶部导航栏的那些东西 -->
           <el-menu
             :default-active="activeIndex"
             class="el-menu-demo"
@@ -37,6 +38,7 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
+          <!-- 顶部导航栏的遍历 -->
             <el-menu-item v-for="menu in topmenus" :key="menu.index" :index="menu.index">{{menu.name}}</el-menu-item>
           </el-menu>
           <div style="position:fixed;right:25px;top:10px">
