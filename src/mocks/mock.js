@@ -222,14 +222,14 @@ const analysis = Mock.mock([{
 ])
 const sysytem = Mock.mock([{
         name: "基础信息",
-        index: "/home/test13",
+        index: "/home",
         children: [{
                 name: "字典管理",
                 index: "/add"
             },
             {
                 name: "菜单管理",
-                index: "/info"
+                index: "/tree"
             },
             {
                 name: "系统配置",

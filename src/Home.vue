@@ -60,14 +60,12 @@
               v-for="(item) in editableTabs"
               :label="item.title"
               :name="item.name"
+              :closable="item.close"
             ></el-tab-pane>
           </el-tabs>
           <!--路由嵌套的地方，也就是这里是所有的页面显示的地方  -->
           <div class="layout-content" style="background-color:#fff">
             <router-view></router-view>
-            <!-- <div class="layout-content-main" style="width:60vh;height:70vh;background-color:#fff">
-              
-            </div> -->
           </div>
         </el-main>
       </el-container>
@@ -91,13 +89,13 @@ export default {
         {
           title: "首页",
           name: "/home",
+          close:false
         }
       ],
       tabIndex: 1 //计数标签页的
     };
   },
   created:function(){
-    console.log(21312313)
     this.createnav()
   },
   methods: {
@@ -107,8 +105,19 @@ export default {
       let titlesub = "" ;
       //遍历左侧的数据找到相对应的名字进行赋值
       this.notic.forEach(names=>{
-        if(names.index == key){
-          titlesub = names.name
+        //判断是否有下级
+        if(names.children != undefined || names.children != null){
+          //有下级就用下级的名称
+          (names.children).forEach(childrenname=>{
+            if(childrenname.index == key){
+              titlesub = childrenname.name
+            }
+          })
+        }else{
+          //没有下级就用当前名称
+          if(names.index == key){
+            titlesub = names.name
+          }
         }
       })
       //组合地址
@@ -131,7 +140,6 @@ export default {
     },
     //顶部导航栏选择后触发
     selectAsid(key){
-      console.log(key)
       //激活点击位置
       this.activeIndex = key
       //根据点击的位置获取侧导航栏的数据
