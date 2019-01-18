@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import Router from 'vue-router'
+import Mock from 'mockjs'
 import App from './App.vue'
 import Home from './Home.vue'
-import Router from 'vue-router'
 import Login from './Login.vue'
 
 Vue.use(ElementUI)
 Vue.use(Router)
+Vue.use(Mock)
 
 import Test1 from './components/test1.vue'
 import Test2 from './components/test2.vue'

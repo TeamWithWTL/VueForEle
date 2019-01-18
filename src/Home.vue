@@ -69,54 +69,16 @@
   </div>
 </template>
 <script>
+import mock from './mocks/mock.js'
 export default {
   data() {
     return {
       // 顶部导航的文字，可以用json传输数据，数组每个都是对象，分别为name和index两个属性
-      topmenus:[
-        {
-          name:"基础数据",
-          index: "basedate"
-        },
-        {
-          name:"消息中心",
-          index:"notic"
-        }
-      ],
+      topmenus:[],
       //激活顶部导航的变量
-      activeIndex: "basedate",
-
-      basedate:[
-        {
-          name:"楼宇管理",
-          index:"/home/test1"
-        },
-        {
-          name:"小区管理",
-          index:"/home/test2"
-        }
-      ],
-      notic:[
-        {
-          name:"通知管理",
-          index:"/home/test1",
-          children:[
-            {
-              name:"添加通知",
-              index:"/add"
-            },
-            {
-              name:"查看通知",
-              index:"/info"
-            }
-          ]
-        },
-        {
-          name:"消息管理",
-          index:"/home/test2"
-        }
-      ],
-
+      activeIndex: "ledge",
+      //侧导航栏
+      notic:[],
       //标签页用到的变量
       editableTabsValue: "/home", //用于激活标签的
       editableTabs: [//所有的标签都存在这里
@@ -128,14 +90,28 @@ export default {
       tabIndex: 1 //计数标签页的
     };
   },
+  created:function(){
+    console.log(21312313)
+    this.createnav()
+  },
   methods: {
+    // 左侧导航栏选中后触发 keypath 包含上级和本级的地址
     handleSelect(key, keypath) {
+      //这个参数是用来传标签名字名字
+      let titlesub = "" ;
+      //遍历左侧的数据找到相对应的名字进行赋值
+      this.notic.forEach(names=>{
+        if(names.index == key){
+          titlesub = names.name
+        }
+      })
+      //组合地址
       if(keypath.length>1){
         key =  keypath[0]+keypath[1];
       }else{
         key = keypath[0]
       }
-      console.log(key);
+      //判断是否已经产生了标签页，没有的话就产生一个有的话就算了
       let check = true;
       for (let i = 0; i < this.editableTabs.length; i++) {
         if (this.editableTabs[i].title == key) {
@@ -143,20 +119,38 @@ export default {
         }
       }
       if (check) {
-        this.handleTabsEdit(key, "add");
+        this.handleTabsEdit({'key':key,'name':titlesub}, "add");
         this.$router.push(key);
       }
     },
+    //顶部导航栏选择后触发
     selectAsid(key){
       console.log(key)
+      //激活点击位置
       this.activeIndex = key
+      //根据点击的位置获取侧导航栏的数据
+      if('ledge' === key){
+        this.notic = mock.ledge
+      }
+      if('production' === key){
+        this.notic = mock.production
+      }
+      if('sysytem' === key){
+        this.notic = mock.sysytem
+      }
+      if('analysis' === key){
+        this.notic = mock.analysis
+      }
+      if('together' === key){
+        this.notic = mock.together
+      }
     },
     handleTabsEdit(targetName, action) {
       // 添加标签页的方法
       if (action === "add") {
-        let newTabName = argetName;
+        let newTabName = targetName.key;
         this.editableTabs.push({
-          title: targetName,
+          title: targetName.name,
           name: newTabName,
         });
         this.editableTabsValue = newTabName;
@@ -179,8 +173,14 @@ export default {
         this.editableTabs = tabs.filter(tab => tab.name !== targetName);
       }
     },
+    //点击相应的标签页跳转相应的地方
     view(tar) {
       this.$router.push(tar.name);
+    },
+    //刚开始的时候给底部导航和侧栏导航进行初始化用的
+    createnav(){
+      this.topmenus = mock.topnav
+      this.notic = mock.ledge
     }
   }
 };
