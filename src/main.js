@@ -13,6 +13,7 @@ Vue.use(Mock)
 
 import Test1 from './components/test1.vue'
 import Test2 from './components/test2.vue'
+/* 所有的路由都放到这里了，看起来可能会很麻烦，在考虑要不要挪到其他的js里面去 */
 const routes = [
   {
     path:'/',

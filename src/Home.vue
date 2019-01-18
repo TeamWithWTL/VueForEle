@@ -3,13 +3,17 @@
     <el-container style="height:100vh;">
       <!--  侧边  !-->
       <el-aside class="el-aside" width="24vh" style="background-color: white;width:200px">
+        <!-- 设置点击事件 -->
         <el-menu @select="handleSelect">
+          <!-- 遍历侧栏数据 -->
           <div :key="sub.id" v-for="sub in notic">
+            <!-- 存在下级 -->
             <div v-if="sub.children">
               <el-submenu :index="sub.index"><template slot="title"><i class="el-icon-message"></i>{{sub.name}}</template>
                 <el-menu-item :key="item.id" v-for="item in sub.children" :index="item.index">{{item.name}}</el-menu-item>
               </el-submenu>
             </div>
+            <!-- 不存在下级 -->
             <div v-else>
               <el-menu-item :index="sub.index"><template slot="title"><i class="el-icon-message"></i>{{sub.name}}</template></el-menu-item>
             </div>
@@ -43,6 +47,7 @@
         </el-header>
         <!--  主要区域内容  !-->
         <el-main style="right:200px;position:relative;left:230px;padding-left: 0px;">
+          <!-- 标签页 -->
           <el-tabs
             v-model="editableTabsValue"
             type="card"
@@ -57,7 +62,7 @@
               :name="item.name"
             ></el-tab-pane>
           </el-tabs>
-          <br>
+          <!--路由嵌套的地方，也就是这里是所有的页面显示的地方  -->
           <div class="layout-content">
             <div class="layout-content-main" style="width:60vh;height:70vh">
               <router-view></router-view>
