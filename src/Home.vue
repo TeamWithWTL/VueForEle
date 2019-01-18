@@ -63,10 +63,11 @@
             ></el-tab-pane>
           </el-tabs>
           <!--路由嵌套的地方，也就是这里是所有的页面显示的地方  -->
-          <div class="layout-content">
-            <div class="layout-content-main" style="width:60vh;height:70vh">
-              <router-view></router-view>
-            </div>
+          <div class="layout-content" style="background-color:#fff">
+            <router-view></router-view>
+            <!-- <div class="layout-content-main" style="width:60vh;height:70vh;background-color:#fff">
+              
+            </div> -->
           </div>
         </el-main>
       </el-container>

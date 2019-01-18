@@ -23,7 +23,7 @@ const topnav = Mock.mock([{
 ])
 const ledge = Mock.mock([{
         name: "资产类型",
-        index: "/home/test1",
+        index: "/home/test1"
     },
     {
         name: "官网台账",
@@ -190,10 +190,9 @@ const analysis = Mock.mock([{
         name: "个人任务统计",
         index: "/home/test1",
         children: [{
-                name: "个人任务完成率",
-                index: "/add"
-            }
-        ]
+            name: "个人任务完成率",
+            index: "/add"
+        }]
     },
     {
         name: "安检统计",
@@ -222,77 +221,76 @@ const analysis = Mock.mock([{
     }
 ])
 const sysytem = Mock.mock([{
-    name: "基础信息",
-    index: "/home/test1",
-    children: [{
-            name: "字典管理",
-            index: "/add"
-        },
-        {
-            name: "菜单管理",
-            index: "/info"
-        },
-        {
-            name:"系统配置",
-            index:'/info'
-        },
-        {
-            name:"系统配置",
-            index:"/info"
-        }
-    ]
-},
-{
-    name: "组织架构",
-    index: "/home/test1",
-    children: [{
-            name: "部门管理",
-            index: "/add"
-        },
-        {
-            name: "人员管理",
-            index: "/info"
-        },
-        {
-            name: "班组管理",
-            index: "/info"
-        }
-    ],
-},
-{
-    name: "权限管理",
-    index: "/home/test1",
-    children: [{
-            name: "角色管理",
-            index: "/add"
-        },
-        {
-            name: "角色人员",
-            index: "/info"
-        },
-        {
-            name:"授权管理",
-            index:"/info"
-        },
-        {
-            name:"数据权限",
-            index:"/info"
-        },
-        {
-            name:"功能管理",
-            index:"/info"
-        }
-    ]
-},
-{
-    name: "计划管理",
-    index: "/home/test1",
-    children: [{
+        name: "基础信息",
+        index: "/home/test13",
+        children: [{
+                name: "字典管理",
+                index: "/add"
+            },
+            {
+                name: "菜单管理",
+                index: "/info"
+            },
+            {
+                name: "系统配置",
+                index: '/info'
+            },
+            {
+                name: "系统配置",
+                index: "/info"
+            }
+        ]
+    },
+    {
+        name: "组织架构",
+        index: "/home/test12",
+        children: [{
+                name: "部门管理",
+                index: "/add"
+            },
+            {
+                name: "人员管理",
+                index: "/info"
+            },
+            {
+                name: "班组管理",
+                index: "/info"
+            }
+        ],
+    },
+    {
+        name: "权限管理",
+        index: "/home/test11",
+        children: [{
+                name: "角色管理",
+                index: "/add"
+            },
+            {
+                name: "角色人员",
+                index: "/info"
+            },
+            {
+                name: "授权管理",
+                index: "/info"
+            },
+            {
+                name: "数据权限",
+                index: "/info"
+            },
+            {
+                name: "功能管理",
+                index: "/info"
+            }
+        ]
+    },
+    {
+        name: "计划管理",
+        index: "/home/test14",
+        children: [{
             name: "计划模板",
             index: "/add"
-        }
-    ]
-}
+        }]
+    }
 ])
 export default {
     topnav,

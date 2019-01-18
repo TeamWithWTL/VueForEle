@@ -1,4 +1,6 @@
 <template>
+  <div class="test" style="height:99.5vh">
+    <img  src="./assets/time.jpg" style="width:100%;height:99.5vh"/>
     <div class="login-f">
         <el-form :model="ruleForm" status-icon :rules="rules2" ref="ruleForm" label-width="100px">
             <el-form-item label="用户名" prop="user">
@@ -13,6 +15,7 @@
             </el-form-item>
             </el-form>
         </div>
+    </div>
 </template>
 <script>
   export default {
@@ -85,7 +88,10 @@
     width: 400px;
     height: 300px;
     position: absolute;
-    right: 10%;
-    top: 40%;
+    right: 39%;
+    top: 68%;
+}
+template{
+  background-image: './assets/time.jpg'
 }
 </style>
