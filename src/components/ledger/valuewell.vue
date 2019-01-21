@@ -134,6 +134,7 @@ export default {
     },
     handleSelectionChange(val) {
       this.multipleSelection = val;
+      console.log(val)
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
