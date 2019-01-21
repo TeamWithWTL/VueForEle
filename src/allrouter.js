@@ -5,6 +5,8 @@ import Test1 from './components/test1.vue'
 import Test2 from './components/test2.vue'
 import Tree from './components/system/tree.vue'
 
+import ValueWell from './components/ledger/valuewell.vue'
+
 /* 所有的路由都放到这里了 */
 const routes = [
     {
@@ -31,6 +33,11 @@ const routes = [
           path:'/home/tree',
           name:'Tree',
           component:Tree
+        },
+        {
+          path:'/home/ledger/valuewell',
+          name:'ValueWell',
+          component:ValueWell
         }
       ]
     }

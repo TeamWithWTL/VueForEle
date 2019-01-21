@@ -43,7 +43,7 @@ const ledge = Mock.mock([{
     },
     {
         name: "阀门井台账",
-        index: "/home/test2"
+        index: "/home/ledger/valuewell"
     },
     {
         name: "生产商台账",
