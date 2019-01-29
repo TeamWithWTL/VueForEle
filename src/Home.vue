@@ -98,9 +98,25 @@ export default {
     };
   },
   created:function(){
-    this.createnav()
+    this.createnav(),
+    this.getData()
   },
   methods: {
+    getData(){
+      this.$ajax({
+        method:'get', //请求方式
+        url:'/user/getUserByUsername?username=luojie' // 请求地址
+        // data:{ //可以传参数
+        //   username:'luojie'
+        // }
+      })
+      .then(function(response){ //response里面返回了请求成功后的数据
+        console.log(response.data.data)
+      })
+      .catch(function(error){// error里面返回了请求失败后的错误信息
+        console.log(error)
+      })
+    },
     // 左侧导航栏选中后触发 keypath 包含上级和本级的地址
     handleSelect(key, keypath) {
       //这个参数是用来传标签名字名字
@@ -145,7 +161,7 @@ export default {
       //激活点击位置
       this.activeIndex = key
       //根据点击的位置获取侧导航栏的数据
-      if('ledge' === key){
+      if('ledger' === key){
         this.notic = mock.ledge
       }
       if('production' === key){
