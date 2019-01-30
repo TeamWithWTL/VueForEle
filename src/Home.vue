@@ -104,11 +104,11 @@ export default {
   methods: {
     getData(){
       this.$ajax({
-        method:'get', //请求方式
-        url:'/user/getUser' // 请求地址
-        // data:{ //可以传参数
-        //   username:'luojie'
-        // }
+        method:'post', //请求方式
+        url:'/user/getUserByUsername', // 请求地址
+        data:{ //可以传参数
+          username:'luojie'
+        }
       })
       .then(function(response){ //response里面返回了请求成功后的数据
         console.log(response.data.data)

@@ -13,7 +13,7 @@ Vue.use(Mock)
 Vue.prototype.$ajax = axios // 添加axios请求
 
 axios.defaults.baseURL='http://localhost:8081' // 设置后端请求地址
-
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';  
 const router = new Router ({
   routes
 })
