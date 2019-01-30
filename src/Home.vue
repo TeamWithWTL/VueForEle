@@ -105,7 +105,7 @@ export default {
     getData(){
       this.$ajax({
         method:'get', //请求方式
-        url:'/user/getUserByUsername?username=luojie' // 请求地址
+        url:'/user/getUser' // 请求地址
         // data:{ //可以传参数
         //   username:'luojie'
         // }
