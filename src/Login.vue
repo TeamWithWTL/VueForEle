@@ -4,13 +4,13 @@
     <div class="login-f">
         <el-form :model="ruleForm" status-icon :rules="rules2" ref="ruleForm" label-width="100px">
             <el-form-item label="用户名" prop="user">
-                <el-input type="text" v-model="ruleForm.user" autocomplete="off" prefix-icon="el-icon-view"></el-input>
+                <el-input type="text" v-model="ruleForm.username" autocomplete="off" prefix-icon="el-icon-view"></el-input>
             </el-form-item>
             <el-form-item label="确认密码" prop="pass">
-                <el-input type="password" v-model="ruleForm.pass" autocomplete="off" prefix-icon="el-icon-view"></el-input>
+                <el-input type="password" v-model="ruleForm.password" autocomplete="off" prefix-icon="el-icon-view"></el-input>
             </el-form-item>
             <el-form-item style="align-items: center">
-                <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                <el-button type="primary" @click="login()">登录</el-button>
                 <el-button @click="resetForm('ruleForm')">重置</el-button>
             </el-form-item>
             </el-form>
@@ -43,41 +43,37 @@
       };
       return {
         ruleForm: {
-          pass: '',
-          user: ''
+          password: '',
+          username: ''
         },
         rules2: {
-          pass: [
+          password: [
             { validator: validatePass, trigger: 'blur' }
           ],
-          user: [
+          username: [
             { validator: validateUser, trigger: 'blur' }
           ]
         }
       };
     },
     methods: {
-      submitForm(formName) {
-          console.log(this.user)
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-              if(this.user == 'admin'){
-                  if(this.pass == 123456){
-                      this.$router.push('/home')
-                  }else{
-                      alert('密码输入错误')
-                  }
-              }else{
-                  alert('用户名输入错误')
-              }
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
+      login:function () {
+        console.log(this.ruleForm.username);
+        this.$ajax({
+        method:'post', //请求方式
+        url:'/user/login', // 请求地址
+        data:{ //可以传参数
+          username:this.ruleForm.username,
+          password:this.ruleForm.password
+        }
+      })
+      .then((response) => { //response里面返回了请求成功后的数据
+        //防止$router.push is undefind使用箭头函数 =>上下文贯穿，this的上下文为外层的this
+        this.$router.push('/Home');
+      })
+      .catch(function(error){// error里面返回了请求失败后的错误信息
+        console.log(error)
+      })
       }
     }
   }
