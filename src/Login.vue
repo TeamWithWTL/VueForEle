@@ -11,9 +11,9 @@
             </el-form-item>
             <el-form-item style="align-items: center">
                 <el-button type="primary" @click="login()">登录</el-button>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <el-button @click="resetForm()">重置</el-button>
             </el-form-item>
-            </el-form>
+          </el-form>
         </div>
     </div>
 </template>
@@ -46,6 +46,7 @@
           password: '',
           username: ''
         },
+        userToken:'',
         rules2: {
           password: [
             { validator: validatePass, trigger: 'blur' }
@@ -62,6 +63,9 @@
         this.$ajax({
         method:'post', //请求方式
         url:'/user/login', // 请求地址
+        xhrFields: {
+          withCredentials: true
+        },
         data:{ //可以传参数
           username:this.ruleForm.username,
           password:this.ruleForm.password
@@ -69,11 +73,32 @@
       })
       .then((response) => { //response里面返回了请求成功后的数据
         //防止$router.push is undefind使用箭头函数 =>上下文贯穿，this的上下文为外层的this
-        this.$router.push('/Home');
+        console.log(response)
+        console.log(response.data)
+        console.log(response.data.state)
+        console.log(response.data.message)
+        let num = response.data.state;
+        console.log(num);
+        if(num == 200){
+           if(response.data.data.login){//后端说了，这个没有也一样
+            //前端登录成功后得到后台的token,并缓存在localStorage中,第三个参数是过期时间，以分钟为单位
+            localStorage.setItem("token",response.data.data.token,3);
+            this.$router.push('/Home');
+          }
+            }else if(num == 101){
+              alert(response.data.message)
+            }else if(num == 102){
+              alert(response.data.message)
+            }else{
+              alert('未知错误,请联系你爸爸');
+            }
       })
       .catch(function(error){// error里面返回了请求失败后的错误信息
-        console.log(error)
+          // alert('用户名或密码错误');
+          alert('未知错误,请联系你爸爸');
       })
+      },
+      resetForm:function (){
       }
     }
   }

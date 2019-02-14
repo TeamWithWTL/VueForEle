@@ -5,9 +5,9 @@ import Router from 'vue-router'
 import Mock from 'mockjs'
 import App from './App.vue'
 import routes from './allrouter' //所有路由的存放处，毕竟是单页面路由嵌套比较多，暂时没有相出更好的书写方法先放这里吧
-import axios from 'axios';
-
-//axios.defaults.withCredentials=true;
+import axios from 'axios'
+import Vuex from 'vuex'
+Vue.use(Vuex)
 Vue.use(ElementUI)
 Vue.use(Router)
 Vue.use(Mock)
