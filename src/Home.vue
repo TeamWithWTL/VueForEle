@@ -103,16 +103,35 @@ export default {
   },
   methods: {
     getData(){
+      /*
+       *
+       *  注：
+       *    每新建页面发送ajax请求必须获取localStorage中的数据并发送给服务端，
+       *    服务端判数据是否为null，如果为null返回false跳转到登录页，如果不为null则跳出"欢迎访问你爸爸的网站"
+       *    var token = localStorage.getItem('token');
+       *    tokenStr:this.token
+       *
+       */
+      //localStorage中获取缓存的token值
+      let token = localStorage.getItem('token');
+      console.log('token:' + token)
       this.$ajax({
         method:'post', //请求方式
-        url:'/user/getUser', // 请求地址
+        url:'/index/home', // 请求地址
+        xhrFields: {
+          withCredentials: true
+        },
         data:{ //可以传参数
-          username:'luojie1'
-          //password:'1234'
+          tokenStr:token
         }
       })
-      .then(function(response){ //response里面返回了请求成功后的数据
-        console.log(response.data.data)
+      .then((response) => { //response里面返回了请求成功后的数据
+        console.log(response.data.data.check)
+        if(response.data.data.check){//服务端返回的boolean值
+          console.log('欢迎访问你爸爸的网站')
+        }else{//如果为false
+          this.$router.push('/');
+        }
       })
       .catch(function(error){// error里面返回了请求失败后的错误信息
         console.log(error)
