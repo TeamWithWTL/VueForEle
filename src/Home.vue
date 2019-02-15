@@ -9,13 +9,13 @@
           <div :key="sub.id" v-for="sub in notic">
             <!-- 存在下级 -->
             <div v-if="sub.children">
-              <el-submenu :index="sub.index"><template slot="title"><i class="el-icon-message"></i>{{sub.name}}</template>
-                <el-menu-item :key="item.id" v-for="item in sub.children" :index="item.index">{{item.name}}</el-menu-item>
+              <el-submenu :index="sub.index"><template slot="title"><i class="el-icon-message"></i>{{sub.label}}</template>
+                <el-menu-item :key="item.id" v-for="item in sub.children" :index="item.index">{{item.label}}</el-menu-item>
               </el-submenu>
             </div>
             <!-- 不存在下级 -->
             <div v-else>
-              <el-menu-item :index="sub.index"><template slot="title"><i class="el-icon-message"></i>{{sub.name}}</template></el-menu-item>
+              <el-menu-item :index="sub.index"><template slot="title"><i class="el-icon-message"></i>{{sub.label}}</template></el-menu-item>
             </div>
           </div>
         </el-menu>
@@ -39,7 +39,7 @@
             active-text-color="#ffd04b"
           >
           <!-- 顶部导航栏的遍历 -->
-            <el-menu-item v-for="menu in topmenus" :key="menu.index" :index="menu.index">{{menu.name}}</el-menu-item>
+            <el-menu-item v-for="menu in topmenus" :key="menu.index" :index="menu.index">{{menu.label}}</el-menu-item>
           </el-menu>
           <div style="position:fixed;right:25px;top:10px">
             <i class="el-icon-info"></i>&nbsp;&nbsp;
@@ -90,7 +90,7 @@ export default {
       editableTabs: [//所有的标签都存在这里
         {
           title: "首页",
-          name: "/home",
+          label: "/home",
           close:false
         }
       ],
@@ -105,9 +105,10 @@ export default {
     getData(){
       this.$ajax({
         method:'post', //请求方式
-        url:'/user/getUserByUsername', // 请求地址
+        url:'/user/getUser', // 请求地址
         data:{ //可以传参数
-          username:'luojie'
+          username:'luojie1'
+          //password:'1234'
         }
       })
       .then(function(response){ //response里面返回了请求成功后的数据

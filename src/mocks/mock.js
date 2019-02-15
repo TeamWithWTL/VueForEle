@@ -1,295 +1,590 @@
 import Mock from 'mockjs'
 
 const topnav = Mock.mock([{
-        name: "资产台账",
+        label: "资产台账",
         index: "ledger"
     },
     {
-        name: "生产运行",
+        label: "生产运行",
         index: "production"
     },
     {
-        name: "协同办公",
+        label: "协同办公",
         index: "together"
     },
     {
-        name: "统计分析",
+        label: "统计分析",
         index: "analysis"
     },
     {
-        name: "系统管理",
+        label: "系统管理",
         index: "sysytem"
     }
 ])
 const ledge = Mock.mock([{
-        name: "资产类型",
+        label: "资产类型",
         index: "/home/test1"
     },
     {
-        name: "官网台账",
+        label: "官网台账",
         index: "/home/test2"
     },
     {
-        name: "管线台账",
+        label: "管线台账",
         index: "/home/test2"
     },
     {
-        name: "设备台账",
+        label: "设备台账",
         index: "/home/test2"
     },
     {
-        name: "换热站台账",
+        label: "换热站台账",
         index: "/home/test2"
     },
     {
-        name: "阀门井台账",
+        label: "阀门井台账",
         index: "/home/ledger/valuewell"
     },
     {
-        name: "生产商台账",
+        label: "生产商台账",
         index: "/home/test2"
     }
 ])
 const production = Mock.mock([{
-        name: "区域管理",
+        label: "区域管理",
         index: "/home/test1",
     },
     {
-        name: "巡检任务",
+        label: "巡检任务",
         index: "/home/test2"
     },
     {
-        name: "官网巡检",
+        label: "官网巡检",
         index: "/home/test2"
     },
     {
-        name: "报停巡检",
+        label: "报停巡检",
         index: "/home/test2",
         children: [{
-                name: "社区管理",
+                label: "社区管理",
                 index: "/add"
             },
             {
-                name: "报停用户",
+                label: "报停用户",
                 index: "/info"
             },
             {
-                name: "报停巡检记录",
+                label: "报停巡检记录",
                 index: "/info"
             },
             {
-                name: "报停检查",
+                label: "报停检查",
                 index: "/info"
             }
         ]
     },
     {
-        name: "缺陷管理",
+        label: "缺陷管理",
         index: "/home/test2"
     },
     {
-        name: "供热情况",
+        label: "供热情况",
         index: "/home/test2"
     },
     {
-        name: "检修记录",
+        label: "检修记录",
         index: "/home/test2"
     },
     {
-        name: "设备更换记录",
+        label: "设备更换记录",
         index: "/home/test2"
     },
     {
-        name: "分户计量",
+        label: "分户计量",
         index: "/home/test2"
     }
 ])
 const together = Mock.mock([{
-        name: "通知公告",
+        label: "通知公告",
         index: "/home/test1",
         children: [{
-                name: "发布公告",
+                label: "发布公告",
                 index: "/add"
             },
             {
-                name: "接收公告",
+                label: "接收公告",
                 index: "/info"
             }
         ]
     },
     {
-        name: "人员定位",
+        label: "人员定位",
         index: "/home/test2"
     },
     {
-        name: "请假记录",
+        label: "请假记录",
         index: "/home/test2"
     }
 ])
 const analysis = Mock.mock([{
-        name: "管线巡检",
+        label: "管线巡检",
         index: "/home/test1",
         children: [{
-                name: "管线状态统计",
+                label: "管线状态统计",
                 index: "/add"
             },
             {
-                name: "管线类型统计",
+                label: "管线类型统计",
                 index: "/info"
             }
         ]
     },
     {
-        name: "设备统计",
+        label: "设备统计",
         index: "/home/test1",
         children: [{
-                name: "设备类型统计",
+                label: "设备类型统计",
                 index: "/add"
             },
             {
-                name: "设备状态统计",
+                label: "设备状态统计",
                 index: "/info"
             },
             {
-                name: "设备厂家统计",
+                label: "设备厂家统计",
                 index: "/info"
             }
         ],
     },
     {
-        name: "阀门井统计",
+        label: "阀门井统计",
         index: "/home/test1",
         children: [{
-                name: "阀门井厂家",
+                label: "阀门井厂家",
                 index: "/add"
             },
             {
-                name: "阀门井状态",
+                label: "阀门井状态",
                 index: "/info"
             }
         ]
     },
     {
-        name: "运维统计",
+        label: "运维统计",
         index: "/home/test1",
         children: [{
-                name: "任务完成率",
+                label: "任务完成率",
                 index: "/add"
             },
             {
-                name: "事件类型统计",
+                label: "事件类型统计",
                 index: "/info"
             },
             {
-                name: "事件状态统计",
+                label: "事件状态统计",
                 index: "/info"
             }
         ]
     },
     {
-        name: "个人任务统计",
+        label: "个人任务统计",
         index: "/home/test1",
         children: [{
-            name: "个人任务完成率",
+            label: "个人任务完成率",
             index: "/add"
         }]
     },
     {
-        name: "安检统计",
+        label: "安检统计",
         index: "/home/test1",
         children: [{
-                name: "社区安检率",
+                label: "社区安检率",
                 index: "/add"
             },
             {
-                name: "个人民用户安检统计",
+                label: "个人民用户安检统计",
                 index: "/info"
             },
             {
-                name: "个人工商用户安检统计",
+                label: "个人工商用户安检统计",
                 index: "/info"
             }
         ]
     },
     {
-        name: "缺陷统计",
+        label: "缺陷统计",
         index: "/home/test2"
     },
     {
-        name: "盗暖统计",
+        label: "盗暖统计",
         index: "/home/test2"
     }
 ])
 const sysytem = Mock.mock([{
-        name: "基础信息",
+        label: "基础信息",
         index: "/home",
         children: [{
-                name: "字典管理",
+                label: "字典管理",
                 index: "/add"
             },
             {
-                name: "菜单管理",
+                label: "菜单管理",
                 index: "/tree"
             },
             {
-                name: "系统配置",
+                label: "系统配置",
                 index: '/info'
             },
             {
-                name: "系统配置",
+                label: "系统配置",
                 index: "/info"
             }
         ]
     },
     {
-        name: "组织架构",
+        label: "组织架构",
         index: "/home/test12",
         children: [{
-                name: "部门管理",
+                label: "部门管理",
                 index: "/add"
             },
             {
-                name: "人员管理",
+                label: "人员管理",
                 index: "/info"
             },
             {
-                name: "班组管理",
+                label: "班组管理",
                 index: "/info"
             }
         ],
     },
     {
-        name: "权限管理",
+        label: "权限管理",
         index: "/home/test11",
         children: [{
-                name: "角色管理",
+                label: "角色管理",
                 index: "/add"
             },
             {
-                name: "角色人员",
+                label: "角色人员",
                 index: "/info"
             },
             {
-                name: "授权管理",
+                label: "授权管理",
                 index: "/info"
             },
             {
-                name: "数据权限",
+                label: "数据权限",
                 index: "/info"
             },
             {
-                name: "功能管理",
+                label: "功能管理",
                 index: "/info"
             }
         ]
     },
     {
-        name: "计划管理",
+        label: "计划管理",
         index: "/home/test14",
         children: [{
-            name: "计划模板",
+            label: "计划模板",
             index: "/add"
         }]
+    }
+])
+const tree = Mock.mock([{
+        label: "资产台账",
+        index: "ledger",
+        children: [{
+                label: "资产类型",
+                index: "/home/test1"
+            },
+            {
+                label: "官网台账",
+                index: "/home/test2"
+            },
+            {
+                label: "管线台账",
+                index: "/home/test2"
+            },
+            {
+                label: "设备台账",
+                index: "/home/test2"
+            },
+            {
+                label: "换热站台账",
+                index: "/home/test2"
+            },
+            {
+                label: "阀门井台账",
+                index: "/home/ledger/valuewell"
+            },
+            {
+                label: "生产商台账",
+                index: "/home/test2"
+            }
+        ]
+    },
+    {
+        label: "生产运行",
+        index: "production",
+        children: [{
+                label: "区域管理",
+                index: "/home/test1",
+            },
+            {
+                label: "巡检任务",
+                index: "/home/test2"
+            },
+            {
+                label: "官网巡检",
+                index: "/home/test2"
+            },
+            {
+                label: "报停巡检",
+                index: "/home/test2",
+                children: [{
+                        label: "社区管理",
+                        index: "/add"
+                    },
+                    {
+                        label: "报停用户",
+                        index: "/info"
+                    },
+                    {
+                        label: "报停巡检记录",
+                        index: "/info"
+                    },
+                    {
+                        label: "报停检查",
+                        index: "/info"
+                    }
+                ]
+            },
+            {
+                label: "缺陷管理",
+                index: "/home/test2"
+            },
+            {
+                label: "供热情况",
+                index: "/home/test2"
+            },
+            {
+                label: "检修记录",
+                index: "/home/test2"
+            },
+            {
+                label: "设备更换记录",
+                index: "/home/test2"
+            },
+            {
+                label: "分户计量",
+                index: "/home/test2"
+            }
+        ]
+    },
+    {
+        label: "协同办公",
+        index: "together",
+        children: [{
+                label: "通知公告",
+                index: "/home/test1",
+                children: [{
+                        label: "发布公告",
+                        index: "/add"
+                    },
+                    {
+                        label: "接收公告",
+                        index: "/info"
+                    }
+                ]
+            },
+            {
+                label: "人员定位",
+                index: "/home/test2"
+            },
+            {
+                label: "请假记录",
+                index: "/home/test2"
+            }
+
+        ]
+    },
+    {
+        label: "统计分析",
+        index: "analysis",
+        children: [{
+                label: "管线巡检",
+                index: "/home/test1",
+                children: [{
+                        label: "管线状态统计",
+                        index: "/add"
+                    },
+                    {
+                        label: "管线类型统计",
+                        index: "/info"
+                    }
+                ]
+            },
+            {
+                label: "设备统计",
+                index: "/home/test1",
+                children: [{
+                        label: "设备类型统计",
+                        index: "/add"
+                    },
+                    {
+                        label: "设备状态统计",
+                        index: "/info"
+                    },
+                    {
+                        label: "设备厂家统计",
+                        index: "/info"
+                    }
+                ],
+            },
+            {
+                label: "阀门井统计",
+                index: "/home/test1",
+                children: [{
+                        label: "阀门井厂家",
+                        index: "/add"
+                    },
+                    {
+                        label: "阀门井状态",
+                        index: "/info"
+                    }
+                ]
+            },
+            {
+                label: "运维统计",
+                index: "/home/test1",
+                children: [{
+                        label: "任务完成率",
+                        index: "/add"
+                    },
+                    {
+                        label: "事件类型统计",
+                        index: "/info"
+                    },
+                    {
+                        label: "事件状态统计",
+                        index: "/info"
+                    }
+                ]
+            },
+            {
+                label: "个人任务统计",
+                index: "/home/test1",
+                children: [{
+                    label: "个人任务完成率",
+                    index: "/add"
+                }]
+            },
+            {
+                label: "安检统计",
+                index: "/home/test1",
+                children: [{
+                        label: "社区安检率",
+                        index: "/add"
+                    },
+                    {
+                        label: "个人民用户安检统计",
+                        index: "/info"
+                    },
+                    {
+                        label: "个人工商用户安检统计",
+                        index: "/info"
+                    }
+                ]
+            },
+            {
+                label: "缺陷统计",
+                index: "/home/test2"
+            },
+            {
+                label: "盗暖统计",
+                index: "/home/test2"
+            }
+
+        ]
+    },
+    {
+        label: "系统管理",
+        index: "sysytem",
+        children: [{
+                label: "基础信息",
+                index: "/home",
+                children: [{
+                        label: "字典管理",
+                        index: "/add"
+                    },
+                    {
+                        label: "菜单管理",
+                        index: "/tree"
+                    },
+                    {
+                        label: "系统配置",
+                        index: '/info'
+                    },
+                    {
+                        label: "系统配置",
+                        index: "/info"
+                    }
+                ]
+            },
+            {
+                label: "组织架构",
+                index: "/home/test12",
+                children: [{
+                        label: "部门管理",
+                        index: "/add"
+                    },
+                    {
+                        label: "人员管理",
+                        index: "/info"
+                    },
+                    {
+                        label: "班组管理",
+                        index: "/info"
+                    }
+                ],
+            },
+            {
+                label: "权限管理",
+                index: "/home/test11",
+                children: [{
+                        label: "角色管理",
+                        index: "/add"
+                    },
+                    {
+                        label: "角色人员",
+                        index: "/info"
+                    },
+                    {
+                        label: "授权管理",
+                        index: "/info"
+                    },
+                    {
+                        label: "数据权限",
+                        index: "/info"
+                    },
+                    {
+                        label: "功能管理",
+                        index: "/info"
+                    }
+                ]
+            },
+            {
+                label: "计划管理",
+                index: "/home/test14",
+                children: [{
+                    label: "计划模板",
+                    index: "/add"
+                }]
+            }
+
+        ]
     }
 ])
 export default {
@@ -298,5 +593,6 @@ export default {
     production,
     sysytem,
     analysis,
-    together
+    together,
+    tree
 }
